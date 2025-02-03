@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="AWSSDK.S3" Version="3.7.411.7" />
+    <PackageReference Include="AWSSDK.SQS" Version="3.7.400.79" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FIAP.Hackaton.GeradorFrame.Processador.Domain\FIAP.Hackaton.GeradorFrame.Processador.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
