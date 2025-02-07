@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+    <ItemGroup>
+	    <PackageReference Include="AWSSDK.S3" Version="3.7.414" />
+	    <PackageReference Include="AWSSDK.SQS" Version="3.7.400.90" />
+	    <PackageReference Include="FFmpeg.AutoGen" Version="7.0.0" />
+	    <PackageReference Include="FFMpegCore" Version="5.1.0" />
+	    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	    <PackageReference Include="System.Text.Json" Version="9.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FIAP.Hackaton.GeradorFrame.Processador.Infra\FIAP.Hackaton.GeradorFrame.Processador.Infra.csproj" />
+    </ItemGroup>
+
+</Project>
