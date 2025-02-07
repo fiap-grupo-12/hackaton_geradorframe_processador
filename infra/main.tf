@@ -78,7 +78,7 @@ resource "aws_lambda_function" "lambda_processador_function" {
   handler       = "FIAP.Hackaton.GeradorFrame.Processador.Api::FIAP.Hackaton.ProcessarVideo.Api.Function::FunctionHandler"
   # Codigo armazenado no S3
   s3_bucket = "hackathon-grupo12-fiap-code-bucket"
-  s3_key    = "lambda_geradorFrame_notifica.zip"
+  s3_key    = "lambda_processador.zip"
 
   environment {
     variables = {
