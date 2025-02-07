@@ -25,17 +25,17 @@ namespace FIAP.Hackaton.GeradorFrame.Processador.Application.Model
         public Notification(Gerenciador requisitante, bool Erro = false)
         {
             Destinatario = requisitante.Email;
-            Nome = requisitante.Nome;
+            Nome = "Usuario";
 
             if (Erro)
             {
                 Assunto = "Erro ao processar video.";
-                Mensagem = $"Erro ao processar requisição {requisitante.IdRequisicao}.";
+                Mensagem = $"Erro ao processar requisição {requisitante.Id}.";
             }
             else
             {
                 Assunto = "Video processado com sucesso.";
-                Mensagem = $"Requisição {requisitante.IdRequisicao} executada com sucesso.";
+                Mensagem = $"Requisição {requisitante.Id} executada com sucesso.";
             }
 
         }

@@ -14,7 +14,7 @@ namespace FIAP.Hackaton.GeradorFrame.Processador.Application.UseCases
 
         public async Task<Gerenciador> Execute(Guid request, CancellationToken cancellationToken)
         {
-            return new Gerenciador() { Email =  "teste@teste.com", Nome = "teste" };//await _repository.GetByRequisicao(request.ToString(), cancellationToken);
+            return new Gerenciador() { Email =  "teste@teste.com" };//await _repository.GetByRequisicao(request.ToString(), cancellationToken);
 
 
         }

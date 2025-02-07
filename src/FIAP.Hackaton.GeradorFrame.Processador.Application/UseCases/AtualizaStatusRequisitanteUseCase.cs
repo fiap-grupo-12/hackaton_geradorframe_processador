@@ -18,7 +18,7 @@ namespace FIAP.Hackaton.GeradorFrame.Processador.Application.UseCases
             if (StatusVideo.Processado == status)
             {
                 request.DataFimProcessamento = DateTime.Now;
-                request.ArquivoDestino = request.IdRequisicao.ToString();
+                request.ArquivoDestino = request.Id.ToString();
             }
 
             request.Status = status;

@@ -9,12 +9,6 @@ public class Gerenciador
     [DynamoDBHashKey("id")]
     public Guid Id { get; set; }
 
-    [DynamoDBProperty("idRequisicao")]
-    public Guid IdRequisicao { get; set; }
-
-    [DynamoDBProperty("nome")]
-    public string Nome { get; set; }
-
     [DynamoDBProperty("email")]
     public string Email { get; set; }
 
@@ -33,6 +27,6 @@ public class Gerenciador
     [DynamoDBProperty("dataFimProcessamento")]
     public DateTime? DataFimProcessamento { get; set; }
 
-    [DynamoDBProperty("status")]
-    public EStatusVideo Status { get; set; }
+    [DynamoDBProperty("statusSolicitacao")]
+    public StatusVideo Status { get; set; }
 }

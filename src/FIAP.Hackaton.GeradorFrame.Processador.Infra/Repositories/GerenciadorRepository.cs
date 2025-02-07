@@ -23,10 +23,10 @@ public class GerenciadorRepository : IGerenciadorRepository
         {
             _logger.LogInformation("Buscando informações do requisitante.");
 
-            var condition = new List<ScanCondition>()
-            {
-                new("idRequisicao", Amazon.DynamoDBv2.DocumentModel.ScanOperator.Equal, idRequisicao)
-            };
+            //var condition = new List<ScanCondition>()
+            //{
+            //    new("id", Amazon.DynamoDBv2.DocumentModel.ScanOperator.Equal, idRequisicao)
+            //};
 
             return await _context.LoadAsync<Gerenciador>(idRequisicao);
         }

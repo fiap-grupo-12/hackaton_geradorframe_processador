@@ -2,7 +2,6 @@
 
 public enum StatusVideo
 {
-    Novo = 1,
-    EmProcessamento = 2,
-    Processado = 3
+    EmProcessamento = 1,
+    Processado = 2
 }
