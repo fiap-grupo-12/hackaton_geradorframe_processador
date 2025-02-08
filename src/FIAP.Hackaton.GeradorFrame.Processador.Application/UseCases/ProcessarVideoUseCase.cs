@@ -1,4 +1,5 @@
-﻿using FFMpegCore;
+﻿using Amazon.Lambda.Core;
+using FFMpegCore;
 using FIAP.GeradorDeFrames.Application.Transport;
 using FIAP.GeradorDeFrames.Application.UseCases.Interfaces;
 using FIAP.Hackaton.GeradorFrame.Processador.Application.Helpers;
@@ -16,12 +17,14 @@ public class ProcessarVideoUseCase(
     IMensageriaProcessarVideo mensageriaProcessarVideo) : IProcessarVideoUseCase
 
 {
-    private readonly ILogger<ProcessarVideoUseCase> _logger = logger;
+
+    private ILambdaContext _context;
     private readonly IAmazonS3Service _amazonS3Service = amazonS3Service;
     private readonly string _bucketOut = Environment.GetEnvironmentVariable("bucket_files_out");
 
-    public async Task<bool> Execute(ProcessarVideoInput input, CancellationToken cancellationToken)
+    public async Task<bool> Execute(ProcessarVideoInput input, ILambdaContext context)
     {
+        _context = context;
         var informacoesArquivo = new InformacoesArquivo
         {
             TempPath = Path.Combine(Path.GetTempPath(), input.IdRequisicao.ToString()),
@@ -46,7 +49,7 @@ public class ProcessarVideoUseCase(
     {
         var stopwatch = new Stopwatch();
         stopwatch.Start();
-        _logger.LogInformation("Iniciando processamento do video");
+        _context.Logger.LogInformation("Iniciando processamento do video");
         List<string> snapShots = new List<string>();
 
         try
@@ -55,28 +58,28 @@ public class ProcessarVideoUseCase(
             var videoInfo = FFProbe.Analyse(informacoesArquivo.TempPathVideo);
             var duration = videoInfo.Duration;
 
-            _logger.LogInformation($"Duração do video {duration}");
+            _context.Logger.LogInformation($"Duração do video {duration}");
 
-            var interval = TimeSpan.FromSeconds(20);
+            var interval = TimeSpan.FromSeconds(5);
 
             for (var currentTime = TimeSpan.Zero; currentTime < duration; currentTime += interval)
             {
-                _logger.LogInformation($"Processando frame: {currentTime}");
+                _context.Logger.LogInformation($"Processando frame: {currentTime}");
 
                 var outputPath = Path.Combine(informacoesArquivo.TempPathSnapshot, $"frame_at_{currentTime.TotalSeconds}.png");
                 snapShots.Add(outputPath);
                 await FFMpeg.SnapshotAsync(informacoesArquivo.TempPathVideo, outputPath, new Size(1920, 1080), currentTime);
             }
-            _logger.LogInformation("Gerando ZIP");
+            _context.Logger.LogInformation("Gerando ZIP");
             var zipFilePath = ZipFilesHelper.ZipFolder(informacoesArquivo.TempPathSnapshot, informacoesArquivo.TempPath + ".zip");
 
             stopwatch.Stop();
-            _logger.LogInformation($"Processamento concluido em {stopwatch.ElapsedMilliseconds} Milisegundos");
+            _context.Logger.LogInformation($"Processamento concluido em {stopwatch.ElapsedMilliseconds} Milisegundos");
             return (true, zipFilePath);
         }
         catch (Exception ex)
         {
-            _logger.LogError($"Erro ao processar vídeo: {ex.Message}");
+            _context.Logger.LogError($"Erro ao processar vídeo: {ex.Message}");
             return (false, "");
         }
         finally

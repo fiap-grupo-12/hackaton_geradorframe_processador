@@ -1,7 +1,7 @@
 using Amazon;
 using Amazon.Lambda;
 using Amazon.Lambda.Core;
-using Amazon.Lambda.S3Events;
+using Amazon.Lambda.SQSEvents;
 using FIAP.GeradorDeFrames.Application.Transport;
 using FIAP.GeradorDeFrames.Application.UseCases.Interfaces;
 using FIAP.Hackaton.GeradorFrame.Processador.Api;
@@ -37,31 +37,31 @@ namespace FIAP.Hackaton.ProcessarVideo.Api
         {
         }
 
-        public async Task FunctionHandler(S3Event evnt, ILambdaContext context)
+        public async Task FunctionHandler(SQSEvent evnt, ILambdaContext context)
         {
-
             var client = new AmazonLambdaClient(RegionEndpoint.SAEast1);
-            // Sua lógica aqui
 
             context.Logger.LogInformation($"Mensagem Recebida: {JsonSerializer.Serialize(evnt)}");
+            var receiptHandle = evnt.Records[0].ReceiptHandle;
+            S3EventMessage s3Event = JsonSerializer.Deserialize<S3EventMessage>(evnt.Records[0].Body);
 
-            foreach (var message in evnt.Records)
+            foreach (var message in s3Event.Records)
             {
-                await ProcessMessageAsync(message.S3, context);
+                await ProcessMessageAsync(message.s3, receiptHandle, context);
             }
         }
 
-        private async Task ProcessMessageAsync(S3Event.S3Entity message, ILambdaContext context)
+        private async Task ProcessMessageAsync(S3 message, string receiptHandle, ILambdaContext context)
         {
-            context.Logger.LogInformation($"Processando a mensagem: {message.Object.Key}");
+            context.Logger.LogInformation($"Processando a mensagem: {message._object.key}");
 
             //Split pra pegar o nome da pasta
             var input = new ProcessarVideoInput
             {
-                IdRequisicao = Guid.Parse(message.Object.Key.Split("/")[0]),
-                VideoName = message.Object.Key.Split("/")[1],
-                BucketName = message.Bucket.Name,
-                ArchiveKey = message.Object.Key
+                IdRequisicao = Guid.Parse(message._object.key.Split("/")[0]),
+                VideoName = message._object.key.Split("/")[1],
+                BucketName = message.bucket.name,
+                ArchiveKey = message._object.key
             };
 
             //Busca Requisitante
@@ -69,7 +69,7 @@ namespace FIAP.Hackaton.ProcessarVideo.Api
             await _atualizaStatusRequisitanteUseCase.Execute(requisitante, StatusVideo.EmProcessamento, default);
 
             //Processa Video
-            var processado = await _processarVideoUseCase.Execute(input, default);
+            var processado = await _processarVideoUseCase.Execute(input, context);
 
             var status = processado ? StatusVideo.Processado : StatusVideo.ProcessadoComErro;
 
@@ -83,10 +83,10 @@ namespace FIAP.Hackaton.ProcessarVideo.Api
                 notification);
 
             //Deleta mensagem da fila
-            //await _mensageriaProcessarVideo.DeletarMensagemSQSAsync(_sqsS3Envoke,
-            //    message.ReceiptHandle);
+            await _mensageriaProcessarVideo.DeletarMensagemSQSAsync(_sqsS3Envoke,
+                receiptHandle);
 
-            context.Logger.LogInformation($"Processamento concluído: {message.Object.Key}");
+            context.Logger.LogInformation($"Processamento concluído: {message._object.key}");
 
             await Task.CompletedTask;
         }
