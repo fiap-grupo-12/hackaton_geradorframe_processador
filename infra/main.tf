@@ -103,12 +103,6 @@ resource "aws_lambda_function" "lambda_processador_function" {
   s3_bucket = "hackathon-grupo12-fiap-code-bucket"
   s3_key    = "lambda_processador.zip"
 
-  layers = [
-    aws_lambda_layer_version.ffprobe.arn,
-    aws_lambda_layer_version.ffplay.arn,
-    aws_lambda_layer_version.ffmpeg.arn
-  ]
-
   environment {
     variables = {
       sqs_enviar_notificacao_url = data.aws_sqs_queue.sqs_notificacao.id
