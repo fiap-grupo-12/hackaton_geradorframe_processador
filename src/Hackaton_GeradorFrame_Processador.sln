@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.Hackaton.GeradorFrame.Processador.Application", "FIAP.Hackaton.GeradorFrame.Processador.Application\FIAP.Hackaton.GeradorFrame.Processador.Application.csproj", "{312E6491-9AF9-497F-A6E0-BB80EFD2F9EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.Hackaton.GeradorFrame.Processador.Domain", "FIAP.Hackaton.GeradorFrame.Processador.Domain\FIAP.Hackaton.GeradorFrame.Processador.Domain.csproj", "{84028E95-7461-4F1E-B7B6-73A5AEA0CE60}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.Hackaton.GeradorFrame.Processador.Infra", "FIAP.Hackaton.GeradorFrame.Processador.Infra\FIAP.Hackaton.GeradorFrame.Processador.Infra.csproj", "{8FE108AA-DEA5-41A6-BFC8-71CCFB2A9E43}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.Hackaton.GeradorFrame.Processador.Api", "FIAP.Hackaton.GeradorFrame.Processador.Api\FIAP.Hackaton.GeradorFrame.Processador.Api.csproj", "{FC667536-C0C8-4FF3-B179-208D4B03C4E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{312E6491-9AF9-497F-A6E0-BB80EFD2F9EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{312E6491-9AF9-497F-A6E0-BB80EFD2F9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{312E6491-9AF9-497F-A6E0-BB80EFD2F9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{312E6491-9AF9-497F-A6E0-BB80EFD2F9EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84028E95-7461-4F1E-B7B6-73A5AEA0CE60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84028E95-7461-4F1E-B7B6-73A5AEA0CE60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84028E95-7461-4F1E-B7B6-73A5AEA0CE60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84028E95-7461-4F1E-B7B6-73A5AEA0CE60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FE108AA-DEA5-41A6-BFC8-71CCFB2A9E43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FE108AA-DEA5-41A6-BFC8-71CCFB2A9E43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FE108AA-DEA5-41A6-BFC8-71CCFB2A9E43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FE108AA-DEA5-41A6-BFC8-71CCFB2A9E43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC667536-C0C8-4FF3-B179-208D4B03C4E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC667536-C0C8-4FF3-B179-208D4B03C4E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC667536-C0C8-4FF3-B179-208D4B03C4E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC667536-C0C8-4FF3-B179-208D4B03C4E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A30BBC00-02B8-4F23-AC62-5553B3BC262A}
+	EndGlobalSection
+EndGlobal

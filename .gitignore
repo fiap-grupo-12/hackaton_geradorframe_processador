@@ -99,6 +99,10 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+*/ffmpeg.exe
+*/ffplay.exe
+*/ffprobe.exe
+*.zip
 
 # Chutzpah Test files
 _Chutzpah*
@@ -396,5 +400,6 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
-# JetBrains Rider
-*.sln.iml
+/src/FIAP.Hackaton.GeradorFrame.Processador.Api/ffmpeg.exe
+/src/FIAP.Hackaton.GeradorFrame.Processador.Api/ffplay.exe
+/src/FIAP.Hackaton.GeradorFrame.Processador.Api/ffprobe.exe
