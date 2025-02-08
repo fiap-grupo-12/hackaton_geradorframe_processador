@@ -1,14 +1,14 @@
+using Amazon;
+using Amazon.Lambda;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.S3Events;
 using FIAP.GeradorDeFrames.Application.Transport;
 using FIAP.GeradorDeFrames.Application.UseCases.Interfaces;
 using FIAP.Hackaton.GeradorFrame.Processador.Api;
 using FIAP.Hackaton.GeradorFrame.Processador.Application.Model;
-using FIAP.Hackaton.GeradorFrame.Processador.Application.UseCases;
 using FIAP.Hackaton.GeradorFrame.Processador.Application.UseCases.Interfaces;
 using FIAP.Hackaton.ProcessarVideo.Domain.Enums;
 using FIAP.Hackaton.ProcessarVideo.Domain.Interfaces;
-using FIAP.Hackaton.ProcessarVideo.Infra.Mensageria;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
 
@@ -39,6 +39,10 @@ namespace FIAP.Hackaton.ProcessarVideo.Api
 
         public async Task FunctionHandler(S3Event evnt, ILambdaContext context)
         {
+
+            var client = new AmazonLambdaClient(RegionEndpoint.SAEast1);
+            // Sua lógica aqui
+
             context.Logger.LogInformation($"Mensagem Recebida: {JsonSerializer.Serialize(evnt)}");
 
             foreach (var message in evnt.Records)
@@ -67,7 +71,9 @@ namespace FIAP.Hackaton.ProcessarVideo.Api
             //Processa Video
             var processado = await _processarVideoUseCase.Execute(input, default);
 
-            await _atualizaStatusRequisitanteUseCase.Execute(requisitante, StatusVideo.Processado, default);
+            var status = processado ? StatusVideo.Processado : StatusVideo.ProcessadoComErro;
+
+            await _atualizaStatusRequisitanteUseCase.Execute(requisitante, status, default);
 
             //Cria notificação
             var notification = new Notification().GerarEmailJsonErro(requisitante, !processado);

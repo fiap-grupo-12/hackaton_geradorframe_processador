@@ -1,4 +1,5 @@
-﻿using Amazon.DynamoDBv2;
+﻿using Amazon;
+using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.S3;
 using Amazon.SQS;
@@ -30,7 +31,8 @@ public static class Startup
         services.AddTransient<IAtualizaStatusRequisitanteUseCase, AtualizaStatusRequisitanteUseCase>();
         services.AddTransient<IAmazonS3Service, AmazonS3Service>();
         services.AddTransient<IDynamoDBContext, DynamoDBContext>();
-            
+
+        services.AddDefaultAWSOptions(new Amazon.Extensions.NETCore.Setup.AWSOptions() { Region = RegionEndpoint.SAEast1 });
         services.AddAWSService<IAmazonSQS>();
         services.AddAWSService<IAmazonDynamoDB>();
         services.AddAWSService<IAmazonS3>();

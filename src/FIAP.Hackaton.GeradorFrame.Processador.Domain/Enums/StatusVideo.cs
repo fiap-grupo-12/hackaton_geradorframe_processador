@@ -3,5 +3,6 @@
 public enum StatusVideo
 {
     EmProcessamento = 1,
-    Processado = 2
+    Processado = 2,
+    ProcessadoComErro = 3
 }
