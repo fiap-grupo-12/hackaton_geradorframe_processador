@@ -22,23 +22,28 @@
     <PackageReference Include="AWSSDK.Lambda" Version="3.7.411.34" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.HealthChecks" Version="2.2.0" />
     <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.7.301" />
-    <PackageReference Include="AWSSDK.SQS" Version="3.7.400.90" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.HealthChecks" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.1" />
     <PackageReference Include="System.Text.Json" Version="9.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <!--<None Update="ffmpeg.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>-->
-    <!--<None Update="ffplay.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>-->
-    <!--<None Update="ffprobe.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>-->
+    <ProjectReference Include="..\FIAP.Hackaton.GeradorFrame.Processador.Application\FIAP.Hackaton.GeradorFrame.Processador.Application.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FIAP.Hackaton.GeradorFrame.Processador.Application\FIAP.Hackaton.GeradorFrame.Processador.Application.csproj" />
+    <None Update="ffmpeg-linux\ffmpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ffmpeg-linux\ffprobe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ffmpeg-linux\qt-faststart">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ffplay.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ffmpeg-linux\" />
   </ItemGroup>
 </Project>
