@@ -20,21 +20,6 @@ public class AmazonS3Service : IAmazonS3Service
         _amazonS3Client = new AmazonS3Client(bucketRegion);
     }
 
-    public async Task<string> GerarURLPreAssunadaAsync(string bucketName,
-        string objectKey)
-    {
-        var request = new GetPreSignedUrlRequest
-        {
-            BucketName = bucketName,
-            Key = objectKey,
-            Expires = DateTime.UtcNow.AddMinutes(15), // Expira em 15 minutos
-            Verb = HttpVerb.GET
-        };
-
-        // Gerar URL
-        return await _amazonS3Client.GetPreSignedURLAsync(request);
-    }
-
     public async Task DownloadFileFromS3Async(InformacoesArquivo informacoesArquivo, string bucketName, string keyName)
     {
         try
