@@ -76,7 +76,7 @@ resource "aws_lambda_function" "lambda_processador_function" {
   role          = aws_iam_role.lambda_execution_processador_role.arn
   runtime       = "dotnet8"
   memory_size   = 512
-  timeout       = 30
+  timeout       = 900
   handler       = "FIAP.Hackaton.GeradorFrame.Processador.Api::FIAP.Hackaton.ProcessarVideo.Api.Function::FunctionHandler"
   # Codigo armazenado no S3
   s3_bucket = "hackathon-grupo12-fiap-code-bucket"
