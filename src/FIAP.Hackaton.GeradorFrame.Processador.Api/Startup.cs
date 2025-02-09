@@ -24,9 +24,7 @@ public static class Startup
     {
         var services = new ServiceCollection();
 
-        //services.AddTransient<IGerenciadorRepository, GerenciadorRepository>();
-        //Mock do repositório
-        services.AddTransient<IGerenciadorRepository, MockGerenciadorRepository>();
+        services.AddTransient<IGerenciadorRepository, GerenciadorRepository>();
         services.AddTransient<IProcessarVideoUseCase, ProcessarVideoUseCase>();
         services.AddTransient<IMensageriaProcessarVideo, MensageriaProcessarVideo>();
         services.AddTransient<IBuscarRequisitanteUseCase, BuscarRequisitanteUseCase>();
