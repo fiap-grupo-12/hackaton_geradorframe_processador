@@ -70,27 +70,6 @@ resource "aws_iam_role_policy_attachment" "lambda_execution_policy" {
 }
 
 # Defina a camada Lambda
-resource "aws_lambda_layer_version" "ffmpeg" {
-  layer_name          = "ffmpeg-layer"
-  description         = "ffmpeg.exe"
-  compatible_runtimes = ["dotnet8"] # Substitua pela runtime da sua função Lambda
-  s3_bucket           = "hackathon-grupo12-fiap-code-bucket"
-  s3_key              = "ffmpeg.zip"
-}
-resource "aws_lambda_layer_version" "ffplay" {
-  layer_name          = "ffplay-layer"
-  description         = "ffplay.exe"
-  compatible_runtimes = ["dotnet8"] # Substitua pela runtime da sua função Lambda
-  s3_bucket           = "hackathon-grupo12-fiap-code-bucket"
-  s3_key              = "ffplay.zip"
-}
-resource "aws_lambda_layer_version" "ffprobe" {
-  layer_name          = "ffprobe-layer"
-  description         = "ffprobe.exe"
-  compatible_runtimes = ["dotnet8"] # Substitua pela runtime da sua função Lambda
-  s3_bucket           = "hackathon-grupo12-fiap-code-bucket"
-  s3_key              = "ffprobe.zip"
-}
 
 resource "aws_lambda_function" "lambda_processador_function" {
   function_name = "lambda_processador_function"
