@@ -2,7 +2,6 @@
 using Amazon.S3;
 using Amazon.S3.Model;
 using FIAP.Hackaton.GeradorFrame.Processador.Domain.Model;
-using FIAP.Hackaton.GeradorFrame.Processador.UnitTests.Resources;
 using FIAP.Hackaton.ProcessarVideo.Infra.AmazonS3;
 using Microsoft.Extensions.Logging;
 using Moq;

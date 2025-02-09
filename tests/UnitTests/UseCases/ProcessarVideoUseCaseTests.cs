@@ -7,7 +7,6 @@ using FFMpegCore;
 using FIAP.GeradorDeFrames.Application.Transport;
 using FIAP.Hackaton.GeradorFrame.Processador.Application.UseCases;
 using FIAP.Hackaton.GeradorFrame.Processador.Domain.Model;
-using FIAP.Hackaton.GeradorFrame.Processador.UnitTests.Resources;
 using FIAP.Hackaton.ProcessarVideo.Domain.Entities;
 using FIAP.Hackaton.ProcessarVideo.Domain.Interfaces;
 using GeradorDeFrames.Domain.Repositories;
