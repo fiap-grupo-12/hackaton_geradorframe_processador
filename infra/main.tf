@@ -75,12 +75,16 @@ resource "aws_lambda_function" "lambda_processador_function" {
   function_name = "lambda_processador_function"
   role          = aws_iam_role.lambda_execution_processador_role.arn
   runtime       = "dotnet8"
-  memory_size   = 512
+  memory_size   = 1024
   timeout       = 900
   handler       = "FIAP.Hackaton.GeradorFrame.Processador.Api::FIAP.Hackaton.ProcessarVideo.Api.Function::FunctionHandler"
   # Codigo armazenado no S3
   s3_bucket = "hackathon-grupo12-fiap-code-bucket"
   s3_key    = "lambda_processador.zip"
+
+  ephemeral_storage {
+    size = 2048 # Min 512 MB and the Max 10240 MB
+  }
 
   environment {
     variables = {
