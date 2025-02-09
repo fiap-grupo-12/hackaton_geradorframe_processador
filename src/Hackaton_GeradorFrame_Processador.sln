@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.Hackaton.GeradorFrame.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.Hackaton.GeradorFrame.Processador.Api", "FIAP.Hackaton.GeradorFrame.Processador.Api\FIAP.Hackaton.GeradorFrame.Processador.Api.csproj", "{FC667536-C0C8-4FF3-B179-208D4B03C4E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIAP.Hackaton.GeradorFrame.Processador.UnitTests", "..\tests\UnitTests\FIAP.Hackaton.GeradorFrame.Processador.UnitTests.csproj", "{CE21B9D0-E70E-4677-BF6F-5E02525AC662}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{FC667536-C0C8-4FF3-B179-208D4B03C4E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC667536-C0C8-4FF3-B179-208D4B03C4E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC667536-C0C8-4FF3-B179-208D4B03C4E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE21B9D0-E70E-4677-BF6F-5E02525AC662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE21B9D0-E70E-4677-BF6F-5E02525AC662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE21B9D0-E70E-4677-BF6F-5E02525AC662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE21B9D0-E70E-4677-BF6F-5E02525AC662}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
