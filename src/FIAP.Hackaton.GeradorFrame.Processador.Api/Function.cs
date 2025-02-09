@@ -96,8 +96,8 @@ namespace FIAP.Hackaton.ProcessarVideo.Api
 
                 var status = processado ? StatusVideo.Processado : StatusVideo.ProcessadoComErro;
                 context.Logger.LogInformation($"✅ Processamento concluído para {message._object.key} com status: {status}");
+                await _atualizaStatusRequisitanteUseCase.Execute(requisitante, status, default);
 
-                
                 context.Logger.LogInformation("📨 Enviando notificação de processamento...");
                 var notification = new Notification().GerarEmailJsonErro(requisitante, !processado);
                 await _mensageriaProcessarVideo.EnviarNotificacaoAsync(_sqsNotification, notification);
