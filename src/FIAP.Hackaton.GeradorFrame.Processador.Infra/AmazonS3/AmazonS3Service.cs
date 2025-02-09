@@ -10,7 +10,7 @@ namespace FIAP.Hackaton.ProcessarVideo.Infra.AmazonS3;
 
 public class AmazonS3Service : IAmazonS3Service
 {
-    private static readonly RegionEndpoint bucketRegion = RegionEndpoint.SAEast1; // SP
+    private static readonly RegionEndpoint bucketRegion = RegionEndpoint.USEast1; // SP
     private readonly ILogger<AmazonS3Service> _logger;
     private AmazonS3Client _amazonS3Client;
 
