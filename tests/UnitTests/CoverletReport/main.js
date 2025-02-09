@@ -221,10 +221,10 @@ var assemblies = [
   {
     "name": "FIAP.Hackaton.GeradorFrame.Processador.Api",
     "classes": [
-      { "name": "FIAP.Hackaton.GeradorFrame.Processador.Api.Object", "rp": "FIAP.Hackaton.GeradorFrame.Processador.Api_Object.html", "cl": 1, "ucl": 3, "cal": 4, "tl": 39, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "FIAP.Hackaton.GeradorFrame.Processador.Api.Record", "rp": "FIAP.Hackaton.GeradorFrame.Processador.Api_Record.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 39, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "FIAP.Hackaton.GeradorFrame.Processador.Api.S3", "rp": "FIAP.Hackaton.GeradorFrame.Processador.Api_S3.html", "cl": 2, "ucl": 2, "cal": 4, "tl": 39, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "FIAP.Hackaton.GeradorFrame.Processador.Api.S3EventMessage", "rp": "FIAP.Hackaton.GeradorFrame.Processador.Api_S3EventMessage.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 39, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "FIAP.Hackaton.GeradorFrame.Processador.Api.Object", "rp": "FIAP.Hackaton.GeradorFrame.Processador.Api_Object.html", "cl": 2, "ucl": 3, "cal": 5, "tl": 33, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "FIAP.Hackaton.GeradorFrame.Processador.Api.Record", "rp": "FIAP.Hackaton.GeradorFrame.Processador.Api_Record.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 33, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "FIAP.Hackaton.GeradorFrame.Processador.Api.S3", "rp": "FIAP.Hackaton.GeradorFrame.Processador.Api_S3.html", "cl": 3, "ucl": 1, "cal": 4, "tl": 33, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "FIAP.Hackaton.GeradorFrame.Processador.Api.S3EventMessage", "rp": "FIAP.Hackaton.GeradorFrame.Processador.Api_S3EventMessage.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 33, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "FIAP.Hackaton.ProcessarVideo.Api.Function", "rp": "FIAP.Hackaton.GeradorFrame.Processador.Api_Function.html", "cl": 56, "ucl": 12, "cal": 68, "tl": 115, "cb": 5, "tb": 8, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
   {

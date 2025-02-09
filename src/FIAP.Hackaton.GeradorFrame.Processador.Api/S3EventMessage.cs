@@ -15,8 +15,6 @@ namespace FIAP.Hackaton.GeradorFrame.Processador.Api
 
     public class S3
     {
-        public string s3SchemaVersion { get; set; }
-        public string configurationId { get; set; }
         public Bucket bucket { get; set; }
         [JsonPropertyName("object")]
         public Object _object { get; set; }
@@ -26,14 +24,10 @@ namespace FIAP.Hackaton.GeradorFrame.Processador.Api
     public class Bucket
     {
         public string name { get; set; }
-        public string arn { get; set; }
     }
 
     public class Object
     {
         public string key { get; set; }
-        public int size { get; set; }
-        public string eTag { get; set; }
-        public string sequencer { get; set; }
     }
 }
