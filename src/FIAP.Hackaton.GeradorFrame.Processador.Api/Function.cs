@@ -10,9 +10,7 @@ using FIAP.Hackaton.GeradorFrame.Processador.Application.UseCases.Interfaces;
 using FIAP.Hackaton.ProcessarVideo.Domain.Enums;
 using FIAP.Hackaton.ProcessarVideo.Domain.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
@@ -99,16 +97,13 @@ namespace FIAP.Hackaton.ProcessarVideo.Api
                 var status = processado ? StatusVideo.Processado : StatusVideo.ProcessadoComErro;
                 context.Logger.LogInformation($"✅ Processamento concluído para {message._object.key} com status: {status}");
 
-                // Notificação e limpeza da fila (comentado caso precise habilitar depois)
-                /*
+                
                 context.Logger.LogInformation("📨 Enviando notificação de processamento...");
                 var notification = new Notification().GerarEmailJsonErro(requisitante, !processado);
                 await _mensageriaProcessarVideo.EnviarNotificacaoAsync(_sqsNotification, notification);
 
                 context.Logger.LogInformation("🗑️ Removendo mensagem da fila...");
                 await _mensageriaProcessarVideo.DeletarMensagemSQSAsync(_sqsS3Envoke, receiptHandle);
-                */
-
             }
             catch (Exception ex)
             {
